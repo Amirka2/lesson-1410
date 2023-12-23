@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Lesson 1410</string>
+    <string name="week_navigation_title">Неделя</string>
+    <string name="day_navigation_title">Сегодня</string>
+    <string name="Monday">Понедельник</string>
+    <string name="Tuesday">Вторник</string>
+    <string name="Wednesday">Среда</string>
+    <string name="Thursday">Четверг</string>
+    <string name="Friday">Пятница</string>
+    <string name="Saturday">Суббота</string>
+    <string name="Sunday">Воскресенье</string>
+    <string name="timeEnterval">С %1$s до %2$s</string>
+    <string name="lessonAmountAdditionText">%1$s пары </string>
+</resources>

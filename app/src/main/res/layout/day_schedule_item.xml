@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lesson_id"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lesson_start_time_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517"
+        tools:text="15:00"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lesson_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toStartOf="@id/lesson_start_time_id"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/lesson_start_time_id"
+        tools:text="1" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lesson_end_time_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/lesson_start_time_id"
+        app:layout_constraintTop_toBottomOf="@id/lesson_start_time_id"
+        android:layout_marginLeft="5dp"
+        tools:text="16:30"
+        android:textColor="@color/time_color"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lesson_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/lesson_end_time_id"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        tools:text="Базы данных"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lesson_audience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lesson_name"
+        app:layout_constraintStart_toStartOf="@id/lesson_name"
+        tools:text="А-13"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lesson_lecturer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lesson_audience"
+        app:layout_constraintStart_toStartOf="@id/lesson_audience"
+        tools:text="Барабан"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
