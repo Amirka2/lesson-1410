@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/week_fragment_recycler"
@@ -12,7 +13,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:itemCount="7"
-        tools:listitem="@layout/week_schedule_item"/>
+        tools:listitem="@layout/week_schedule_item"
+        android:padding="16dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

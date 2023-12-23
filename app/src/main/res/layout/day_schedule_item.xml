@@ -1,69 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/lesson_id"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardCornerRadius="16dp"
+    android:backgroundTint="@color/lightBlue"
+    android:layout_marginBottom="5dp">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/lesson_start_time_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
-        tools:text="15:00"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <com.google.android.material.textview.MaterialTextView
+        <com.google.android.material.textview.MaterialTextView
         android:id="@+id/lesson_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintEnd_toStartOf="@id/lesson_start_time_id"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lesson_start_time_id"
-        tools:text="1" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/lesson_end_time_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/lesson_start_time_id"
-        app:layout_constraintTop_toBottomOf="@id/lesson_start_time_id"
-        android:layout_marginLeft="5dp"
-        tools:text="16:30"
-        android:textColor="@color/time_color"/>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/lesson_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/lesson_end_time_id"
         app:layout_constraintTop_toTopOf="parent"
-        android:textStyle="bold"
-        android:layout_marginStart="8dp"
-        tools:text="Базы данных"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="40sp"
+        tools:text="1"
+        />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/lesson_audience"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lesson_name"
-        app:layout_constraintStart_toStartOf="@id/lesson_name"
-        tools:text="А-13"/>
+        <LinearLayout
+            android:id="@+id/time_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/lesson_number"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/lesson_lecturer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lesson_audience"
-        app:layout_constraintStart_toStartOf="@id/lesson_audience"
-        tools:text="Барабан"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lesson_time_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="16:00" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lesson_time_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="16:00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_info_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/time_wrapper"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
+            app:flow_verticalGap="5dp"
+            >
+            <TextView
+                android:id="@+id/auditorium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="TextView"
+                />
+            <TextView
+                android:id="@+id/lecturer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="TextView"
+                />
+            <TextView
+                android:id="@+id/subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="TextView"
+                />
+        </LinearLayout>
+
+        <!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:layout_width=""-->
+<!--        android:layout_height=""-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -2,8 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="new_message">#00FF55</color>
+    <color name="new_message">#4CAF50</color>
     <color name="time_color">#808080</color>
-    <color name="week_item_color">#75998282</color>
-    <color name="currentLesson">#FF0000</color>
+    <color name="week_item_color">#E1E1E1</color>
+    <color name="lightBlue">#03A9F4</color>
+    <color name="darkBlue">#009BDF</color>
 </resources>
