@@ -17,20 +17,21 @@ class DayItemAdapter: RecyclerView.Adapter<DayItemAdapter.DayItemViewHolder>() {
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: LessonData) {
             if (data.isCurrentLesson) {
-                binding.lessonId.setBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.currentLesson))
             }
+
             binding.lessonNumber.text = data.lessonNumber
-            binding.lessonEndTimeId.text = data.timeEnd
-            binding.lessonStartTimeId.text = data.timeStart
-            binding.lessonName.text = data.disciplineName
-            binding.lessonAudience.text = data.lessonAudience
-            binding.lessonLecturer.text = data.lecturerName
+            binding.lessonTimeEnd.text = data.timeEnd
+            binding.lessonTimeStart.text = data.timeStart
+            binding.subject.text = data.disciplineName
+            binding.auditorium.text = data.lessonAudience
+            binding.lecturer.text = data.lecturerName
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = DayScheduleItemBinding.inflate(inflater, parent, false)
+
         return DayItemViewHolder(binding)
     }
 
@@ -42,6 +43,7 @@ class DayItemAdapter: RecyclerView.Adapter<DayItemAdapter.DayItemViewHolder>() {
 
     fun submitList(list: List<LessonData>) {
         this.list.addAll(list)
+
         notifyDataSetChanged()
     }
 }

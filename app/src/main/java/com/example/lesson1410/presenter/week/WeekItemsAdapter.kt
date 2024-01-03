@@ -21,13 +21,16 @@ class WeekItemsAdapter : RecyclerView.Adapter<WeekItemsAdapter.WeekItemViewHolde
         private val binding: WeekScheduleItemBinding
     ) :RecyclerView.ViewHolder(binding.root) {
         private val adapter = DayItemAdapter()
+
         fun bind(data: Week) {
             val context = binding.root.context
+
             binding.lessonAmount.text = context.getString(R.string.lessonAmountAdditionText, data.lessonAmount.toString())
             binding.timeOfLessons.text = context.getString(R.string.timeEnterval, data.lessonsTimeStart, data.lessonsTimeEnd)
             binding.dayOfWeek.text = context.getString(data.dayOfTheWeek.dayOfWeekStringId)
             binding.dayScheduleRecycler.adapter = this.adapter
             binding.dayScheduleRecycler.layoutManager = LinearLayoutManager(context)
+
             adapter.submitList(data.lessons)
         }
     }
@@ -39,6 +42,7 @@ class WeekItemsAdapter : RecyclerView.Adapter<WeekItemsAdapter.WeekItemViewHolde
             parent,
             false
         )
+
         return WeekItemViewHolder(binding)
     }
 

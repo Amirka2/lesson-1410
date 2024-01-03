@@ -20,13 +20,16 @@ class WeekScheduleFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWeekScheduleBinding.inflate(inflater, container, false)
+
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding?.weekFragmentRecycler?.adapter = this.adapter
         binding?.weekFragmentRecycler?.layoutManager = LinearLayoutManager(requireContext())
+
         adapter.submitList(WeekScheduleData.list)
     }
 

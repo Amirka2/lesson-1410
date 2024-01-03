@@ -19,6 +19,7 @@ class RootFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRootBinding.inflate(inflater, container, false)
+
         return binding?.root
     }
 
@@ -35,8 +36,11 @@ class RootFragment: Fragment() {
 
     private fun selectTab(itemId: Int) {
         val navHostId = binding?.bottomNavHost?.id
+
         navHostId ?: return
+
         val transaction = childFragmentManager.beginTransaction()
+
         when(itemId) {
             R.id.navigation_week_schedule -> transaction.replace(
                 navHostId,
