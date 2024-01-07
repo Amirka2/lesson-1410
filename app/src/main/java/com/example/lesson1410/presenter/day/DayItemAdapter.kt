@@ -1,8 +1,12 @@
 package com.example.lesson1410.presenter.day
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lesson1410.R
 import com.example.lesson1410.data.LessonData
 import com.example.lesson1410.databinding.DayScheduleItemBinding
 
@@ -20,9 +24,9 @@ class DayItemAdapter: RecyclerView.Adapter<DayItemAdapter.DayItemViewHolder>() {
             binding.subject.text = data.disciplineName
             binding.auditorium.text = data.lessonAudience
             binding.lecturer.text = data.lecturerName
-//            if (!data.isCurrentLesson) {
-//                binding.root.setBackgroundResource(R.color.new_message)
-//            }
+            if (data.isCurrentLesson) {
+                binding.root.setBackground(ContextCompat.getDrawable(binding.root.context, R.drawable.current_lesson_wrapper))
+            }
         }
     }
 
@@ -38,8 +42,8 @@ class DayItemAdapter: RecyclerView.Adapter<DayItemAdapter.DayItemViewHolder>() {
     override fun onBindViewHolder(holder: DayItemViewHolder, position: Int) {
         val item = lessonsList[position]
 
-//        if (item.isCurrentLesson) {
-//            holder.itemView.setBackgroundColor(Color.GREEN)
+//        if (!item.isCurrentLesson) {
+//            holder.itemView.background = (R.drawable.current_lesson_wrapper.toDrawable())
 //        } else {
 //            holder.itemView.setBackgroundResource(R.color.new_message)
 //        }

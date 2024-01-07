@@ -158,9 +158,19 @@ object WeekScheduleData {
             ),
             DaySchedule(
                 dayOfTheWeek = WeekDays.SUNDAY,
-                lessonAmount = 0,
-                startsWith = 0,
-                lessons = listOf<LessonData>()
+                lessonAmount = 1,
+                startsWith = 1,
+                lessons = listOf<LessonData>(
+                    LessonData(
+                        lessonNumber = "1",
+                        timeStart = "01-00",
+                        timeEnd = "23-50",
+                        disciplineName = "Android",
+                        lessonAudience = "132",
+                        isCurrentLesson = false,
+                        lecturerName = "Никита",
+                    )
+                )
             )
         )
 }

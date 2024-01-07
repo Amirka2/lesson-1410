@@ -40,7 +40,9 @@ class DayScheduleFragment : Fragment() {
         val recyclerView: RecyclerView = binding!!.myFirstRecycler
         val emptyTextView: TextView = view.findViewById(R.id.text_for_empty)
 
-        if (lessons.size === 0) {
+        lessons.addAll(WeekScheduleData.dayScheduleList[getDayIndex()].lessons)
+
+        if (lessons.size == 0) {
             recyclerView.visibility = View.GONE
             emptyTextView.visibility = View.VISIBLE
         } else {
@@ -49,8 +51,6 @@ class DayScheduleFragment : Fragment() {
 
             recyclerView.adapter = this.adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-            lessons.addAll(WeekScheduleData.dayScheduleList[getDayIndex()].lessons)
 
             setCurrentLessonIfExists()
 
