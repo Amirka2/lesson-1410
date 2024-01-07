@@ -11,4 +11,5 @@
     <string name="Sunday">Воскресенье</string>
     <string name="time_interval">С %1$s до %2$s</string>
     <string name="lesson_amount_additional_text">%1$s пары </string>
+    <string name="no_lesson_text">Выходной)</string>
 </resources>
