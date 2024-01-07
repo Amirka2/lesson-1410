@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.lesson1410.R
 import com.example.lesson1410.WeekScheduleData
 import com.example.lesson1410.data.LessonData
 import com.example.lesson1410.databinding.FragmentDayBinding
@@ -34,14 +37,25 @@ class DayScheduleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.myFirstRecycler?.adapter = this.adapter
-        binding?.myFirstRecycler?.layoutManager = LinearLayoutManager(requireContext())
+        val recyclerView: RecyclerView = binding!!.myFirstRecycler
+        val emptyTextView: TextView = view.findViewById(R.id.text_for_empty)
 
-        lessons.addAll(WeekScheduleData.dayScheduleList[getDayIndex()].lessons)
+        if (lessons.size === 0) {
+            recyclerView.visibility = View.GONE
+            emptyTextView.visibility = View.VISIBLE
+        } else {
+            recyclerView.visibility = View.VISIBLE
+            emptyTextView.visibility = View.GONE
 
-        setCurrentLessonIfExists()
+            recyclerView.adapter = this.adapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        adapter.submitLessonsList(lessons)
+            lessons.addAll(WeekScheduleData.dayScheduleList[getDayIndex()].lessons)
+
+            setCurrentLessonIfExists()
+
+            adapter.submitLessonsList(lessons)
+        }
     }
 
     private fun getDayIndex(): Int {
