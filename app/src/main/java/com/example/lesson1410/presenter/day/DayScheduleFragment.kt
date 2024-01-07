@@ -12,6 +12,7 @@ import com.example.lesson1410.databinding.FragmentDayBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
+import java.util.Locale
 
 class DayScheduleFragment : Fragment() {
 
@@ -19,19 +20,6 @@ class DayScheduleFragment : Fragment() {
     private var adapter = DayItemAdapter()
 
     val lessons = mutableListOf<LessonData>()
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.myFirstRecycler?.adapter = this.adapter
-        binding?.myFirstRecycler?.layoutManager = LinearLayoutManager(requireContext())
-
-        lessons.addAll(WeekScheduleData.list[getDayIndex()].lessons)
-
-        setCurrentLessonIfExists()
-
-        adapter.submitList(lessons)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +29,19 @@ class DayScheduleFragment : Fragment() {
         binding = FragmentDayBinding.inflate(inflater, container, false)
 
         return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.myFirstRecycler?.adapter = this.adapter
+        binding?.myFirstRecycler?.layoutManager = LinearLayoutManager(requireContext())
+
+        lessons.addAll(WeekScheduleData.dayScheduleList[getDayIndex()].lessons)
+
+        setCurrentLessonIfExists()
+
+        adapter.submitLessonsList(lessons)
     }
 
     private fun getDayIndex(): Int {
@@ -60,18 +61,15 @@ class DayScheduleFragment : Fragment() {
         }
     }
 
-    private fun getTime(): String {
-        val dateFormat = SimpleDateFormat("HH:mm")
-        return dateFormat.format(Date())
-    }
-
     private fun setCurrentLessonIfExists() {
-        val curTime = getTime()
+        val curTime = Date()
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd-hh-mm", Locale("ru"))
 
         for (elem in lessons) {
-            if (elem.timeStart.split(":")[0].toInt() < curTime.split(":")[0].toInt()
-                && elem.timeEnd.split(":")[0].toInt() > curTime.split(":")[0].toInt()
-            ) {
+            val dateStart = simpleDateFormat.parse("${curTime.year + 1900}-${curTime.month + 1}-${curTime.date}-" + elem.timeStart)
+            val dateEnd = simpleDateFormat.parse("${curTime.year + 1900}-${curTime.month + 1}-${curTime.date}-" + elem.timeEnd)
+
+            if (curTime.after(dateStart) && dateEnd.after(curTime)) {
                 elem.isCurrentLesson = true
             }
         }

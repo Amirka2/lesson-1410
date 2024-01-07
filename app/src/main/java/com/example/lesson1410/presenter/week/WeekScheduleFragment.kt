@@ -30,7 +30,7 @@ class WeekScheduleFragment: Fragment() {
         binding?.weekFragmentRecycler?.adapter = this.adapter
         binding?.weekFragmentRecycler?.layoutManager = LinearLayoutManager(requireContext())
 
-        adapter.submitList(WeekScheduleData.list)
+        adapter.submitList(WeekScheduleData.dayScheduleList)
     }
 
     companion object {

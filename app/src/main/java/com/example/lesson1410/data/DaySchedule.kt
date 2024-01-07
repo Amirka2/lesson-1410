@@ -3,7 +3,7 @@ package com.example.lesson1410.data
 import androidx.annotation.StringRes
 import com.example.lesson1410.R
 
-data class Week (
+data class DaySchedule (
     val dayOfTheWeek: WeekDays,
     val lessonAmount: Int,
     val startsWith: Int,

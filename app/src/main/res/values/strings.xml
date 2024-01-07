@@ -9,6 +9,6 @@
     <string name="Friday">Пятница</string>
     <string name="Saturday">Суббота</string>
     <string name="Sunday">Воскресенье</string>
-    <string name="timeEnterval">С %1$s до %2$s</string>
-    <string name="lessonAmountAdditionText">%1$s пары </string>
+    <string name="time_interval">С %1$s до %2$s</string>
+    <string name="lesson_amount_additional_text">%1$s пары </string>
 </resources>
